@@ -1,0 +1,36 @@
+body {
+    font-size: 1.2em;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+header {
+    background-color: blueviolet;
+}
+
+.brand>span {
+    font-size: 4em;
+}
+
+.post-summary>img {
+    display: block;
+}
+
+.brand {
+    background-color: blueviolet;
+    color: white;
+    display: grid;
+    grid-template-columns: 60px auto;
+    max-width: 500px;
+    align-items: center;
+}
+
+.brand>h1 {
+    margin-left: .5em;
+}
+.post-summary{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    max-width: 800px;
+    margin: 0 auto;
+}
