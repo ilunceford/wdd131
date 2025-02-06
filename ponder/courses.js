@@ -21,16 +21,19 @@ const aCourse = {
     ]
 };
 
+enrollStudent: function(sectionNum) {
+    console.log(sectionNum);
+    console.log(sections);
+}
+
 console.log(aCourse.sections[0].sectionNum);
 
 
 const section1 = aCourse.sections.find(section => section.sectionNum === 1);
 
 function setCourseInfo(course) {
-    const courseName = document.querySelector("#courseName");
-    const courseCode = document.querySelector("#courseCode");
-    courseName.textContent = course.name;
-    courseCode.textContent = course.code;
+    document.querySelector("#courseName").textContent = course.name;
+    document.querySelector("#courseCode").textContent = course.courseCode;
   }
   
   function sectionTemplate(section) {
@@ -43,9 +46,16 @@ function setCourseInfo(course) {
   }
   
   function renderSections(sections) {
+    const sectionList = document.querySelector("#sections");
+    sectionList.innerHTML = "";
     const html = sections.map(sectionTemplate);
-    document.querySelector("#sections").innerHTML = html.join("");
+    sectionList.innerHTML = html.join("\n");
   }
   
   setCourseInfo(aCourse);
   renderSections(aCourse.sections);
+
+  document.querySelector("#enrollStudent").addEventListener("click", aCourse.enrollStudent() (sectionNum) => {      
+
+    aCourse.enrollStudent(1);
+  }
