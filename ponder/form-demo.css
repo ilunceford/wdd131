@@ -1,35 +1,113 @@
-/* form-demo.css */
+/* General Reset */
 * {
-    box-sizing: border-box;
-  }
-  body {
-    font-family: Arial, sans-serif;
-    margin: 20px;
-  }
-  
-  main {
-    max-width: 600px;
-    margin: 0 auto;
-  }
-  
-  .errors > p {
-    border: 1px solid red;
-    padding: 0.5em;
-  }
-  /* Style the select arrow for Safari */
-  select::-webkit-inner-spin-button,
-  select::-webkit-outer-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
-  }
-  
-  /* Style the select arrow for other browsers */
-  select {
-    -moz-appearance: none;
-    -webkit-appearance: none;
-    appearance: none;
-  }
-  
-  .hide {
-    display: none; /* Initially hide the credit card input and label */
-  }
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 20px;
+  background-color: #f9f9f9;
+  color: #333;
+  line-height: 1.5;
+}
+
+main {
+  max-width: 600px;
+  margin: 20px auto;
+  padding: 20px;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Form Elements */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+fieldset {
+  border: none;
+  padding: 10px 0;
+}
+
+legend {
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+input, textarea, select {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+input:focus-visible, textarea:focus-visible, select:focus-visible {
+  outline: 2px solid #AF1B3F;
+  border-color: #AF1B3F;
+}
+
+/* Payment Method Styling */
+select {
+  appearance: none;
+  background-color: #fff;
+  cursor: pointer;
+  padding-right: 30px;
+  background-image: url('data:image/svg+xml;utf8,<svg fill="%23473144" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M5 7l5 5 5-5H5z"/></svg>');
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  background-size: 12px;
+}
+
+/* Safari & Firefox Fix */
+select::-webkit-inner-spin-button,
+select::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Hide elements with [hidden] attribute instead of a separate class */
+[hidden] {
+  display: none;
+}
+
+/* Error Styling */
+.errors > p {
+  border: 1px solid red;
+  padding: 0.5em;
+  background-color: #ffebeb;
+  color: red;
+  border-radius: 4px;
+}
+
+/* Button Styling */
+button.place-order-btn {
+  background-color: #AF1B3F;
+  color: white;
+  padding: 10px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.3s ease-in-out;
+}
+
+button.place-order-btn:hover {
+  background-color: #8c1631;
+}

@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Checkout Form</title>
     <script src="form-demo.js" defer></script>
+    <link rel="stylesheet" href="form-demo.css">
 </head>
 
 <body>
@@ -15,35 +16,35 @@
     <main>
         <form id="checkoutForm" action="completed.html">
             <fieldset>
-                <p>
+                <legend>Billing Information</legend>
+
                 <label for="fullName">Full Name:</label>
                 <input type="text" id="fullName" name="fullName" required />
-                </p>
-                <p>
+
                 <label for="email">Email:</label>
                 <input type="email" id="email" name="email" required />
-                </p>
-                <p>
+
                 <label for="address">Address:</label>
                 <textarea id="address" name="address" rows="4" required></textarea>
-                </p>
             </fieldset>
 
             <fieldset>
+                <legend>Payment Details</legend>
+
                 <label for="paymentMethod">Payment Method:</label>
                 <select id="paymentMethod" name="paymentMethod" required>
-                    <option value="">Select Payment Method</option>
+                    <option value="" disabled selected>Select Payment Method</option>
                     <option value="creditCard">Credit Card</option>
                     <option value="paypal">PayPal</option>
                 </select>
 
-                <div id="creditCardNumberContainer" class="hide">
+                <div id="creditCardContainer" hidden>
                     <label for="creditCardNumber">Credit Card Number:</label>
-                    <input type="text" id="creditCardNumber" name="creditCardNumber" pattern="[0-9]{16}"
-                        placeholder="Enter 16 digits" />
+                    <input type="text" id="creditCardNumber" name="creditCardNumber" pattern="\d{16}" 
+                        placeholder="Enter 16-digit number" />
                 </div>
 
-                <div id="paypalUsernameContainer" class="hide">
+                <div id="paypalContainer" hidden>
                     <label for="paypalUsername">PayPal Username:</label>
                     <input type="text" id="paypalUsername" name="paypalUsername" placeholder="Enter PayPal username" />
                 </div>

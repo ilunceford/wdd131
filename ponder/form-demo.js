@@ -1,58 +1,95 @@
 // form-demo.js
-function validateForm(event) {
-  // get a reference to the form. Because we attached a submit event listener to the form itself, we can access the form either through 'event.target', or 'this'
-  const theForm = event.target;
-  // the default behavior for a form submit is to try and navigate to another page where the form would be processed, if a url is not provided it will reload the current page. This sometimes is not desirable behavior. One case when we might do this is if we think there is bad data in the form.
-  // To keep it from happening we can can call e.preventDefault()
-  // You should always give feedback to the user about what whet wrong so they can fix it. We will store the error messages here
-  const errors = [];
-  // start by assuming the form is valid.
-  let isValid = true;
-  // add our validations here
 
-  // if we ran into any problems above valid will be false.
+document.addEventListener("DOMContentLoaded", function () {
+  const theForm = document.getElementById("checkoutForm");
+  const paymentMethodSelect = document.getElementById("paymentMethod");
+
+  theForm.addEventListener("submit", validateForm);
+  paymentMethodSelect.addEventListener("change", togglePaymentDetails);
+});
+
+function validateForm(event) {
+  const theForm = event.target;
+  const errors = [];
+  let isValid = true;
+
+  // Validate Full Name
+  const fullName = theForm.fullName.value.trim();
+  if (fullName.length < 2) {
+    isValid = false;
+    errors.push("Full Name must be at least 2 characters long.");
+  }
+
+  // Validate Email
+  const email = theForm.email.value.trim();
+  const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (!emailPattern.test(email)) {
+    isValid = false;
+    errors.push("Please enter a valid email address.");
+  }
+
+  // Validate Address
+  const address = theForm.address.value.trim();
+  if (address.length < 5) {
+    isValid = false;
+    errors.push("Address must be at least 5 characters long.");
+  }
+
+  // Validate Payment Method
+  const paymentMethod = theForm.paymentMethod.value;
+  if (!paymentMethod) {
+    isValid = false;
+    errors.push("Please select a payment method.");
+  } else if (paymentMethod === "creditCard") {
+    // Validate Credit Card Number
+    const creditCardNumber = theForm.creditCardNumber.value.trim();
+    if (!/^\d{16}$/.test(creditCardNumber)) {
+      isValid = false;
+      errors.push("Credit Card Number must be exactly 16 digits.");
+    }
+  } else if (paymentMethod === "paypal") {
+    // Validate PayPal Username
+    const paypalUsername = theForm.paypalUsername.value.trim();
+    if (paypalUsername.length < 3) {
+      isValid = false;
+      errors.push("PayPal Username must be at least 3 characters long.");
+    }
+  }
+
+  // Show errors and prevent submission if the form is invalid
   if (!isValid) {
-    //stop the form from being submitted
     event.preventDefault();
-    // show the errors
     showErrors(errors);
-    // return false to let the browser know the form was not submitted.
     return false;
   }
 }
 
-function togglePaymentDetails(e) {
-  // get a reference to the form. We can access all the named form inputs through the form element.
-  const theForm = document.querySelector("#checkoutForm");
-  // we will also need the creditCardContainer and paypalUsernameContainer
-  const creditCardContainer = document.getElementById(
-    "creditCardNumberContainer"
-  );
-  const paypalContainer = document.getElementById("paypalUsernameContainer");
+function togglePaymentDetails(event) {
+  const theForm = document.getElementById("checkoutForm");
+  const creditCardContainer = document.getElementById("creditCardContainer");
+  const paypalContainer = document.getElementById("paypalContainer");
+  const paymentMethod = event.target.value;
 
-  // Hide payment containers
-  creditCardContainer.classList.add(".hide");
-  paypalContainer.classList.add(".hide");
-  // Disable required for the hidden fields...if we hide a required field the browser will throw an error when we try to submit!
-  theForm.creditCardNumber.required = false;
-  theForm.paypalUsername.required = false;
+  // Hide all payment fields
+  creditCardContainer.hidden = true;
+  paypalContainer.hidden = true;
 
-  // Show the container based on the selected payment method
-  if (theForm.paymentMethod.value === "creditCard") {
-    creditCardContainer.classList.remove("hide");
-    theForm.creditCardNumber.required = true;
-  } else if (theForm.paymentMethod.value === "paypal") {
-    paypalContainer.classList.remove("hide");
-    theForm.paypalUsername.required = true;
+  // Disable required attributes to prevent validation errors when hidden
+  theForm.creditCardNumber.removeAttribute("required");
+  theForm.paypalUsername.removeAttribute("required");
+
+  // Show relevant payment fields and add required attribute
+  if (paymentMethod === "creditCard") {
+    creditCardContainer.hidden = false;
+    theForm.creditCardNumber.setAttribute("required", "true");
+  } else if (paymentMethod === "paypal") {
+    paypalContainer.hidden = false;
+    theForm.paypalUsername.setAttribute("required", "true");
   }
 }
 
-// helper function to display our errors.
+// Helper function to display errors
 function showErrors(errors) {
   const errorEl = document.querySelector(".errors");
-  const html = errors.map((error) => `<p>${error}</p>`);
-  errorEl.innerHTML = html.join("");
+  errorEl.innerHTML = errors.map(error => `<p>${error}</p>`).join("");
 }
-// attach a change event handler to the paymentMethod input
-document.querySelector("#paymentMethod").addEventListener("change", togglePaymentDetails);
-// attach a submit event handler to the form

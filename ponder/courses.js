@@ -1,61 +1,74 @@
-// courses.js
 const aCourse = {
-    courseCode: "CSE121b",
-    name: "Javascript Language",
-    credits: 3,
-    sections: [{
-        sectionNum: 1,
-        roomNum: 'STC 353',
-        enrolled: 26,
-        days: 'TTh',
-        instructor: 'Bro T'
-    },
-
+  code: "CSE121b",
+  name: "Javascript Language",
+  sections: [
     {
-        sectionNum: 2,
-        roomNum: 'STC 347',
-        enrolled: 28,
-        days: 'TTh',
-        instructor: 'Sis A'
+      sectionNum: 1,
+      roomNum: "STC 353",
+      enrolled: 26,
+      days: "TTh",
+      instructor: "Bro T",
+    },
+    {
+      sectionNum: 2,
+      roomNum: "STC 347",
+      enrolled: 25,
+      days: "TTh",
+      instructor: "Sis A",
+    },
+  ],
+
+  enrollStudent: function (sectionNum) {
+    this.changeEnrollment(sectionNum, true);
+  },
+
+  dropStudent: function (sectionNum) {
+    this.changeEnrollment(sectionNum, false);
+  },
+
+  changeEnrollment: function (sectionNum, add = true) {
+    // find the right section using findIndex
+    const sectionIndex = this.sections.findIndex(
+      (section) => section.sectionNum == sectionNum
+    );
+    if (sectionIndex >= 0) {
+      if (add) {
+        this.sections[sectionIndex].enrolled++;
+      } else {
+        this.sections[sectionIndex].enrolled--;
+      }
+      renderSections(this.sections);
     }
-    ]
+  },
 };
 
-enrollStudent: function(sectionNum) {
-    console.log(sectionNum);
-    console.log(sections);
+function setCourseInfo(course) {
+  document.querySelector("#courseName").textContent = course.name;
+  document.querySelector("#courseCode").textContent = course.code;
 }
 
-console.log(aCourse.sections[0].sectionNum);
-
-
-const section1 = aCourse.sections.find(section => section.sectionNum === 1);
-
-function setCourseInfo(course) {
-    document.querySelector("#courseName").textContent = course.name;
-    document.querySelector("#courseCode").textContent = course.courseCode;
-  }
-  
-  function sectionTemplate(section) {
-    return `<tr>
+function renderSections(sections) {
+  const html = sections.map(
+    (section) => `<tr>
       <td>${section.sectionNum}</td>
       <td>${section.roomNum}</td>
       <td>${section.enrolled}</td>
       <td>${section.days}</td>
       <td>${section.instructor}</td></tr>`
-  }
-  
-  function renderSections(sections) {
-    const sectionList = document.querySelector("#sections");
-    sectionList.innerHTML = "";
-    const html = sections.map(sectionTemplate);
-    sectionList.innerHTML = html.join("\n");
-  }
-  
-  setCourseInfo(aCourse);
-  renderSections(aCourse.sections);
+  );
+  document.querySelector("#sections").innerHTML = html.join("");
+}
 
-  document.querySelector("#enrollStudent").addEventListener("click", aCourse.enrollStudent() (sectionNum) => {      
+document.querySelector("#enrollStudent").addEventListener("click", function () {
+  const sectionNum = parseInt(document.querySelector("#sectionNumber").value);
+  if (!isNaN(sectionNum)) aCourse.enrollStudent(sectionNum);
+});
 
-    aCourse.enrollStudent(1);
-  }
+document.querySelector("#dropStudent").addEventListener("click", function () {
+  const sectionNum = parseInt(document.querySelector("#sectionNumber").value);
+  if (!isNaN(sectionNum)) aCourse.dropStudent(sectionNum);
+});
+
+// Initialize UI
+setCourseInfo(aCourse);
+renderSections(aCourse.sections);
