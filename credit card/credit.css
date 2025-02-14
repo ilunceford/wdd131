@@ -20,7 +20,7 @@
     grid-template-columns:  repeat(3, 95px);
     grid-template-rows: repeat(3, 55px);
     gap: 20px 20px;
-    justify-items: auto;
+    justify-items: start;
 }
 
 #front {

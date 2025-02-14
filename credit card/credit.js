@@ -39,5 +39,10 @@ function submitHandler(event) {
 
 // Attach event listener to the form
 document.addEventListener('DOMContentLoaded', function () {
-	document.querySelector('#credit-card').addEventListener('submit', submitHandler);
+	const form = document.querySelector('#credit-card');
+	if (form) {
+		form.addEventListener('submit', submitHandler);
+	} else {
+		console.error('Form with id "credit-card" not found in the DOM.');
+	}
 });
