@@ -1,0 +1,171 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Oswald:wght@200..700&family=Walter+Turncoat&display=swap');
+:root {
+    --primary-color: #586A6A;
+    --secondary-color: #DAD4EF;
+    --accent1-color: #818D92;
+    --accent2-color: #F15025;
+}
+html,
+body {
+    min-height: 100vh;
+    margin: 0;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+header {
+    background-color: #DAD4EF;
+    padding: 1em;
+    display: flex;
+    justify-content: space-between;
+}
+
+nav {
+    width: 100%;
+    padding: 0 1em;
+}
+
+nav>img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+}
+
+nav>ul {
+    list-style: none;
+    display: flex;
+    justify-content: space-evenly;
+    gap: 1.5em;
+    padding: 0;
+    margin: 0;
+}
+
+nav>ul>li {
+    display: inline;
+}
+
+nav>ul>li>a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    transition: color 0.3s ease-in-out;
+}
+
+nav>ul>li>a:hover {
+    color: #A43312;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+#background {
+    width: 100%;
+    height: 300px;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero {
+    position: relative;
+    text-align: center;
+}
+
+.centered {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+h2 {
+    text-align: center;
+    margin: 1em;
+    color: #333;
+}
+
+section {
+    text-align: center;
+    padding: 2em;
+}
+
+button {
+    background-color: #AF1B3F;
+    color: white;
+    border: none;
+    padding: 0.75em 1.5em;
+    font-size: 1.2em;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: background-color 0.3s ease-in-out;
+}
+
+button:hover {
+    background-color: #F15025;
+}
+
+#quote {
+    font-size: 1.5em;
+    margin-top: 1em;
+    font-style: italic;
+    color: #473144;
+}
+
+footer {
+    background-color: #DAD4EF;
+    color: #333;
+    text-align: center;
+    padding: 1em;
+    margin-top: 2em;
+}
+footer nav img {
+    display: flex;
+    justify-content: flex-start;
+}
+footer nav ul {
+    padding: 0;
+    list-style: none;
+    display: flex;
+    justify-content: space-evenly;
+    gap: 1em;
+}
+
+footer nav ul li a {
+    color: #333;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+footer nav ul li a:hover {
+    color: #A43312;
+}
+
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    nav {
+        flex-direction: column;
+    }
+
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+        padding: 0;
+    }
+
+    nav ul li {
+        margin: 0.5em 0;
+    }
+
+    #background {
+        height: 200px;
+    }
+}

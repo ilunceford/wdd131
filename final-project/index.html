@@ -1,38 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quote Generator</title>
-    <link rel="stylesheet" href="quote-generator.css">
-    <script src="quote-generator.js" defer></script>
+    <link rel="stylesheet" href="page-1.css">
+    <script src="page-1.js" defer></script>
+    <meta name="description" content="Quote Generator">
+    <meta name="author" content="Israel Lunceford">
 </head>
+
 <body>
     <header>
-        <img src="Final Project Logo.png" alt="logo">
         <nav>
+            <img src="Final Project Logo.png" alt="Quote Generator Logo">
             <ul>
                 <li><a href="index.html">Home</a></li>
                 <li><a href="page-2.html">Page 2</a></li>
-                <li><a href="about.html">About</a></li>
+                <li><a href="site-plan/site-plan.html">Site Plan</a></li>
                 <li><a href="contact.html">Contact</a></li>
             </ul>
         </nav>
-
     </header>
+
     <main>
-        <img src="page-1-image-behind-text.jpg" alt="image behind text">
-        <h2>I created this website to bring smiles to people when they are having a bad Day.
-			Aditionally I hope to inspire people to be the best version of themselves. I hope you enjoy the quotes and the colors of the website.</h2>
+        <div class="hero">
+            <img src="page-1-image-behind-text.jpg" id="background" alt="Inspirational background">
+            <div class="centered">
+                <h1>I created this website to bring smiles to people when they are having a bad day. Additionally, I
+                hope to
+                inspire people to be the best version of themselves. I hope you enjoy the quotes and the colors of
+                the
+                website.</h1>
+            </div>
+        </div>
+
         <section>
             <h1>Quote Generator</h1>
             <p>Click the button below to generate a random quote.</p>
-            <button id="quote-button">Generate Quote</button>
-            <p id="quote"></p>
-
+            <button onclick="document.location='page-2.html'">Generate A Quote</button>
+        </section>
     </main>
+
     <footer>
         <p>&copy; 2025 Quote Generator</p>
+        <nav>
+            <img src="Final Project Logo.png" alt="Quote Generator Logo">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="page-2.html">Page 2</a></li>
+                <li><a href="site-plan/site-plan.html">Site Plan</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
     </footer>
 </body>
+
 </html>
