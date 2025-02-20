@@ -6,18 +6,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quote Generator</title>
     <link rel="stylesheet" href="page-1.css">
-    <script src="page-1.js" defer></script>
     <meta name="description" content="Quote Generator">
     <meta name="author" content="Israel Lunceford">
+    <script src="main.js" defer></script>
 </head>
 
 <body>
     <header>
         <nav>
-            <img src="Final Project Logo.png" alt="Quote Generator Logo">
+            <img src="Final Project Logo.png" alt="Quote Generator - Inspirational Logo">
             <ul>
                 <li><a href="index.html">Home</a></li>
-                <li><a href="page-2.html">Page 2</a></li>
+                <li><a href="page-2.html">Generate Quote</a></li>
                 <li><a href="site-plan/site-plan.html">Site Plan</a></li>
                 <li><a href="contact.html">Contact</a></li>
             </ul>
@@ -25,31 +25,43 @@
     </header>
 
     <main>
-        <div class="hero">
+        <section class="hero">
             <img src="page-1-image-behind-text.jpg" id="background" alt="Inspirational background">
             <div class="centered">
-                <h1>I created this website to bring smiles to people when they are having a bad day. Additionally, I
-                hope to
-                inspire people to be the best version of themselves. I hope you enjoy the quotes and the colors of
-                the
-                website.</h1>
+                <h1>
+                    I created this website to bring smiles to people when they are having a bad day.
+                    Additionally, I hope to inspire people to be the best version of themselves.
+                    Enjoy the quotes and colors of the website!
+                </h1>
             </div>
-        </div>
-
-        <section>
-            <h1>Quote Generator</h1>
-            <p>Click the button below to generate a random quote.</p>
-            <button onclick="document.location='page-2.html'">Generate A Quote</button>
         </section>
+
+        <div class="content">
+            <div class="card">
+                <h2>Random Quote</h2>
+                <p>Do you want a random quote?</p>
+                <button onclick="displayQuote()" class="btn">Generate</button>
+            </div>
+
+            <!-- Quote Display -->
+            <div id="quote" class="quote-box"></div>
+
+            <!-- Form to Record User's Thought -->
+            <form id="thoughtForm" action="quote-display.html" method="GET">
+                <input type="hidden" name="quote" id="hiddenQuote">
+                <label for="thought">Your Thought:</label>
+                <textarea name="thought" id="thought" rows="4" placeholder="Write your thoughts here..." required></textarea>
+                <button type="submit" class="btn">Submit</button>
+            </form>
+        </div>
     </main>
 
     <footer>
         <p>&copy; 2025 Quote Generator</p>
         <nav>
-            <img src="Final Project Logo.png" alt="Quote Generator Logo">
             <ul>
                 <li><a href="index.html">Home</a></li>
-                <li><a href="page-2.html">Page 2</a></li>
+                <li><a href="page-2.html">Generate Quote</a></li>
                 <li><a href="site-plan/site-plan.html">Site Plan</a></li>
                 <li><a href="contact.html">Contact</a></li>
             </ul>
