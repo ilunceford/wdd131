@@ -7,4 +7,4 @@ async function getRandomQuote() {
     console.log(data.content, " - ", data.author); 
   
   }
-  
+  getRandomQuote();
