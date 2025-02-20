@@ -1,0 +1,139 @@
+@import url("@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Oswald:wght@200..700&family=Walter+Turncoat&display=swap');");
+
+:root {
+    --primary-color: #586A6A;
+    --secondary-color: #DAD4EF;
+    --accent1-color: #818D92;
+    --accent2-color: #F15025;
+}
+
+body {
+    font-family: "Walter Turncoat", Helvetica, sans-serif;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+textarea {
+     vertical-align: top; }
+header {
+    background-color: #586A6A;
+    width: 100%;
+    height: 100px;
+}
+
+#logo {
+    display: flex;
+    justify-content: flex-start;
+    width: 100px;
+    height: 100px;
+}
+
+.nav {
+    list-style-type: none; 
+    display: flex;
+    justify-content: space-between;
+}
+
+.content {
+    max-width: 600px;
+    padding: 20px;
+    margin: auto;
+    justify-content: center;
+    align-items: center;
+}
+
+.card {
+    padding: 15px 30px 15px 30px;
+    max-width: 500px;
+    max-height: 300px;
+    text-align: center;
+    background-color: #f2e6ff;
+    border-radius: 5px;
+    border-top: #ee9be4 5px;
+    margin-top: 20px;
+}
+
+h2 {
+    background-color: var(--secondary-color);
+    color: var(--accent1-color);
+    padding: 10px;
+    font-family: Lora, serif;
+    text-align: center;
+    border-radius: 5px;
+}
+
+.btn {
+    height: 50px;
+    width: 150px;
+    font-size: 18px;
+    box-shadow: 4px 4px rgba(0, 0, 0, 0.3);
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.btn:hover {
+    background-color: #D84315;
+    transform: scale(1.05);
+}
+
+.quote-box {
+    margin-top: 20px;
+    font-size: 20px;
+    font-weight: bold;
+    padding: 10px;
+    border-radius: 5px;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.show-quote {
+    opacity: 1;
+}
+
+#background {
+    width: 100%;
+    height: auto;
+    opacity: 0.7;
+}
+.container {
+    position: relative;
+    text-align: center;
+    color: white;
+  }
+.centered h1{
+    color: #333;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+footer {
+    background-color: #586A6A;
+    font-size: 18px;
+    text-align: center;
+    position: absolute;
+    margin-top: auto;
+    width: 100%;
+    height: 100px;
+}
+
+#footer-nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    height: 100px;
+    list-style-type: none;
+    font-family: "Oswald", Helvetica, sans-serif;
+}
+

@@ -5,13 +5,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Your Thoughts</title>
-    <link rel="stylesheet" href="page-1.css">
+    <link rel="stylesheet" href="page-2.css">
+    <script src="main.js" defer></script>
 </head>
 
 <body>
     <header>
+        <img id="logo" src="Final Project Logo.png" alt="Quote Generator Logo">
         <nav>
-            <img src="Final Project Logo.png" alt="Quote Generator Logo">
             <ul>
                 <li><a href="index.html">Home</a></li>
                 <li><a href="page-2.html">Generate Quote</a></li>
@@ -27,25 +28,23 @@
                 <h2>Your Thought</h2>
                 <p id="displayQuote"></p>
                 <blockquote id="displayThought"></blockquote>
-                <a href="page-1.html" class="btn">Go Back</a>
+                <a href="index.html" class="btn">Go Back</a>
             </div>
         </div>
     </main>
 
     <footer>
-        <p>&copy; 2025 Quote Generator</p>
+        <img id="logo" src="Final Project Logo.png" alt="Quote Generator Logo">
+        <nav>
+            <ul>
+                <li><p>&copy; 2025 Quote Generator</p></li>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="page-2.html">Generate Quote</a></li>
+                <li><a href="site-plan/site-plan.html">Site Plan</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
     </footer>
-
-    <script>
-        // Get URL parameters
-        const urlParams = new URLSearchParams(window.location.search);
-        const quote = urlParams.get('quote');
-        const thought = urlParams.get('thought');
-
-        // Display the quote and thought
-        document.getElementById("displayQuote").innerText = quote || "No quote found.";
-        document.getElementById("displayThought").innerText = thought || "No thought recorded.";
-    </script>
 </body>
 
 </html>
