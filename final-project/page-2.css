@@ -1,12 +1,14 @@
-/* Import fonts */
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Oswald:wght@200..700&family=Walter+Turncoat&display=swap');
 
-/* Define color variables */
 :root {
-    --primary-color: #586A6A;  /* Dark Gray */
-    --secondary-color: #DAD4EF; /* Light Purple */
-    --accent1-color: #818D92;   /* Grayish Blue */
-    --accent2-color: #F15025;   /* Orange Accent */
+    --primary-color: #586A6A;
+    --secondary-color: #DAD4EF;
+    --accent1-color: #818D92;
+    --accent2-color: #F15025;
+}
+
+html {
+    height: 100%;
 }
 
 body {
@@ -14,7 +16,10 @@ body {
     margin: 0;
     padding: 0;
     text-align: center;
-    background-color: var(--secondary-color); /* Light Purple background */
+    background-color: var(--secondary-color);
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
 }
 
 * {
@@ -23,34 +28,39 @@ body {
     padding: 0;
 }
 
-/* Header Styles */
 header {
-    background-color: var(--primary-color); /* Dark Gray */
+    background-color: var(--primary-color);
     width: 100%;
-    height: 80px; /* Smaller height for header */
+    height: 100px;
     display: flex;
-    justify-content: space-between; /* Space between logo and nav */
     align-items: center;
-    padding: 0 20px;
+    padding: 0 20px 0 0;
 }
 
 header #logo {
     width: 80px;
-    height: 60px;
+    height: 100px;
+    margin: 0;
+}
+
+header nav {
+    flex: 1;
+    display: flex;
+    justify-content: space-evenly;
 }
 
 header nav ul {
     display: flex;
-    justify-content: space-between; /* Space out links */
+    justify-content: space-evenly;
     align-items: center;
     list-style-type: none;
     padding: 0;
     margin: 0;
-    width: 60%; /* Make sure the links take up enough space */
+    width: 100%;
 }
 
 header nav ul li {
-    margin: 0 15px;
+    margin: 0;
 }
 
 header nav ul li a {
@@ -63,10 +73,14 @@ header nav ul li a {
 }
 
 header nav ul li a:hover {
-    color: var(--accent2-color); /* Change link color on hover */
+    color: var(--accent2-color);
 }
 
-/* Main Content Styles */
+main {
+    flex: 1;
+    width: 100%;
+}
+
 .content {
     max-width: 600px;
     padding: 20px;
@@ -74,17 +88,17 @@ header nav ul li a:hover {
 }
 
 .card {
-    background-color: #f2e6ff; /* Light Purple background for card */
+    background-color: #f2e6ff;
     border-radius: 5px;
-    border-top: 5px solid #ee9be4; /* Soft Pink accent on top */
+    border-top: 5px solid #ee9be4;
     padding: 15px 30px;
     text-align: center;
     margin-top: 20px;
 }
 
 .card h2 {
-    background-color: var(--secondary-color); /* Light Purple */
-    color: var(--accent1-color); /* Grayish Blue */
+    background-color: var(--secondary-color);
+    color: var(--accent1-color);
     padding: 10px;
     font-family: Lora, serif;
     text-align: center;
@@ -95,73 +109,57 @@ header nav ul li a:hover {
     height: 50px;
     width: 150px;
     font-size: 18px;
-    background-color: var(--accent2-color); /* Orange Accent */
+    background-color: var(--accent2-color);
     color: white;
     border-radius: 5px;
     border: none;
     cursor: pointer;
     transition: background 0.3s ease, transform 0.2s ease;
+    text-decoration: none;
+    display: inline-block;
+    line-height: 30px;
 }
 
 .card .btn:hover {
-    background-color: #D84315; /* Darker orange on hover */
+    background-color: #D84315;
     transform: scale(1.05);
 }
 
-/* Background Image Styles */
-#background {
-    width: 100%;
-    height: auto;
-    opacity: 0.7;
-}
-
-.container {
-    position: relative;
-    text-align: center;
-    color: white;
-}
-
-.centered h1 {
-    color: #333;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
-
-/* Footer Styles */
 footer {
-    background-color: var(--primary-color); /* Dark Gray */
+    background-color: var(--primary-color);
     font-size: 18px;
     text-align: center;
     width: 100%;
-    height: 80px; /* Smaller footer */
+    height: 100px;
     display: flex;
-    justify-content: space-between; /* Space out logo and nav links */
     align-items: center;
-    padding: 0 20px;
-    position: fixed;
-    bottom: 0;
-    left: 0;
+    padding: 0 20px 0 0;
 }
 
 footer #logo {
     width: 80px;
-    height: 60px;
+    height: 100px;
+    margin: 0;
+}
+
+footer nav {
+    flex: 1;
+    display: flex;
+    justify-content: space-evenly;
 }
 
 footer nav ul {
     display: flex;
-    justify-content: space-between; /* Space out footer links */
+    justify-content: space-evenly;
     align-items: center;
     list-style-type: none;
     padding: 0;
     margin: 0;
-    width: 60%; /* Make sure the links take up enough space */
+    width: 100%;
 }
 
 footer nav ul li {
-    margin: 0 15px;
+    margin: 0;
 }
 
 footer nav ul li a {
@@ -170,25 +168,37 @@ footer nav ul li a {
 }
 
 footer nav ul li a:hover {
-    color: var(--accent2-color); /* Change color of footer links on hover */
+    color: var(--accent2-color);
 }
 
 /* Responsive Styles */
 @media screen and (max-width: 768px) {
-    header, footer {
-        padding: 10px 10px;
-        height: 60px; /* Smaller header and footer on small screens */
+    header {
+        height: auto;
+        padding: 10px 15px 10px 0;
     }
 
-    header nav ul,
-    footer nav ul {
-        flex-direction: column; /* Stack nav links vertically */
-        text-align: center;
+    header nav {
+        justify-content: space-around;
     }
 
-    header nav ul li,
-    footer nav ul li {
+    header nav ul {
+        justify-content: space-around;
+        flex-wrap: wrap;
+    }
+
+    header nav ul li {
         margin: 5px 0;
+    }
+
+    #logo {
+        width: 60px;
+        height: 80px;
+    }
+
+    .content {
+        max-width: 100%;
+        padding: 15px;
     }
 
     .card {
@@ -197,5 +207,85 @@ footer nav ul li a:hover {
 
     .card h2 {
         font-size: 1.5rem;
+    }
+
+    .card .btn {
+        width: 120px;
+        font-size: 16px;
+    }
+
+    footer {
+        height: auto;
+        padding: 10px 15px 10px 0;
+    }
+
+    footer nav {
+        justify-content: space-around;
+    }
+
+    footer nav ul {
+        justify-content: space-around;
+        flex-wrap: wrap;
+    }
+
+    footer nav ul li {
+        margin: 5px 0;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    header {
+        flex-direction: column;
+        padding: 10px;
+        height: auto;
+    }
+
+    header nav {
+        width: 100%;
+        justify-content: center;
+    }
+
+    header nav ul {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    header nav ul li {
+        margin: 10px 0;
+    }
+
+    #logo {
+        width: 50px;
+        height: 60px;
+    }
+
+    .card {
+        padding: 10px;
+    }
+
+    .card .btn {
+        width: 100px;
+        height: 40px;
+        font-size: 14px;
+    }
+
+    footer {
+        flex-direction: column;
+        padding: 10px;
+        height: auto;
+    }
+
+    footer nav {
+        width: 100%;
+        justify-content: center;
+    }
+
+    footer nav ul {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    footer nav ul li {
+        margin: 10px 0;
     }
 }

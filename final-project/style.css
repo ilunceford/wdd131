@@ -1,4 +1,4 @@
-@import url("@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Oswald:wght@200..700&family=Walter+Turncoat&display=swap');");
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Oswald:wght@200..700&family=Walter+Turncoat&display=swap');
 
 :root {
     --primary-color: #586A6A;
@@ -7,11 +7,18 @@
     --accent2-color: #F15025;
 }
 
+html {
+    height: 100%;
+}
+
 body {
     font-family: "Walter Turncoat", Helvetica, sans-serif;
     margin: 0;
     padding: 0;
     text-align: center;
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
 }
 
 * {
@@ -29,32 +36,45 @@ header {
     width: 100%;
     height: 100px;
     display: flex;
-    justify-content: center;
     align-items: center;
+    padding: 0 20px 0 0;
+}
+
+#logo {
+    width: 80px;
+    height: 100px;
+    margin: 0;
+}
+
+.nav {
+    flex: 1;
+    display: flex;
+    justify-content: space-evenly;
 }
 
 .nav ul {
     display: flex;
-    justify-content: center;
+    justify-content: space-evenly;
     align-items: center;
     list-style-type: none;
     padding: 0;
+    margin: 0;
+    width: 100%;
 }
 
 .nav ul li {
-    margin: 0 15px;
-    display: flex;
-    align-items: center;
+    margin: 0;
 }
 
-
-#logo {
-    display: flex;
-    justify-content: flex-start;
-    width: 80px;
-    height: 100px;
+.nav ul li a {
+    color: white;
+    text-decoration: none;
 }
 
+main {
+    flex: 1;
+    width: 100%;
+}
 
 .content {
     max-width: 600px;
@@ -65,13 +85,13 @@ header {
 }
 
 .card {
-    padding: 15px 30px 15px 30px;
+    padding: 15px 30px;
     max-width: 500px;
     max-height: 300px;
     text-align: center;
     background-color: #f2e6ff;
     border-radius: 5px;
-    border-top: #ee9be4 5px;
+    border-top: #ee9be4 5px solid;
     margin-top: 20px;
 }
 
@@ -142,26 +162,157 @@ footer {
     width: 100%;
     height: 100px;
     display: flex;
-    justify-content: center;
-    /* Centers content horizontally */
     align-items: center;
-    /* Centers content vertically */
+    padding: 0 20px 0 0;
+}
+
+footer nav {
+    flex: 1;
+    display: flex;
+    justify-content: space-evenly;
 }
 
 footer nav ul {
     display: flex;
-    justify-content: center;
-    /* Centers items horizontally */
+    justify-content: space-evenly;
     align-items: center;
-    /* Aligns items vertically */
     list-style-type: none;
     padding: 0;
+    margin: 0;
+    width: 100%;
 }
 
 footer nav ul li {
-    margin: 0 15px;
-    /* Adds spacing between items */
-    display: flex;
-    align-items: center;
-    /* Ensures text and images align */
+    margin: 0;
+}
+
+footer nav ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+
+@media (max-width: 768px) {
+    header {
+        height: auto;
+        padding: 10px 15px 10px 0;
+    }
+
+    .nav {
+        justify-content: space-around;
+    }
+
+    .nav ul {
+        justify-content: space-around;
+        flex-wrap: wrap;
+    }
+
+    .nav ul li {
+        margin: 5px 0;
+    }
+
+    #logo {
+        width: 60px;
+        height: 80px;
+    }
+
+    .content {
+        max-width: 100%;
+        padding: 15px;
+    }
+
+    .card {
+        max-width: 100%;
+        padding: 10px 20px;
+    }
+
+    .btn {
+        width: 120px;
+        font-size: 16px;
+    }
+
+    .centered h1 {
+        font-size: 1.5em;
+        padding: 0 10px;
+    }
+
+    footer {
+        height: auto;
+        padding: 10px 15px 10px 0;
+    }
+
+    footer nav {
+        justify-content: space-around;
+    }
+
+    footer nav ul {
+        justify-content: space-around;
+        flex-wrap: wrap;
+    }
+
+    footer nav ul li {
+        margin: 5px 0;
+    }
+}
+
+@media (max-width: 480px) {
+    header {
+        flex-direction: column;
+        padding: 10px;
+        height: auto;
+    }
+
+    .nav {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .nav ul {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .nav ul li {
+        margin: 10px 0;
+    }
+
+    #logo {
+        width: 50px;
+        height: 60px;
+    }
+
+    .centered h1 {
+        font-size: 1.2em;
+        padding: 0 5px;
+    }
+
+    .card {
+        padding: 10px;
+    }
+
+    .btn {
+        width: 100px;
+        height: 40px;
+        font-size: 14px;
+    }
+
+    footer {
+        flex-direction: column;
+        padding: 10px;
+        height: auto;
+    }
+
+    footer nav {
+        width: 100%;
+        justify-content: center;
+    }
+
+    footer nav ul {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    footer nav ul li {
+        margin: 10px 0;
+    }
 }
