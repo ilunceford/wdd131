@@ -1,0 +1,201 @@
+/* Import fonts */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Oswald:wght@200..700&family=Walter+Turncoat&display=swap');
+
+/* Define color variables */
+:root {
+    --primary-color: #586A6A;  /* Dark Gray */
+    --secondary-color: #DAD4EF; /* Light Purple */
+    --accent1-color: #818D92;   /* Grayish Blue */
+    --accent2-color: #F15025;   /* Orange Accent */
+}
+
+body {
+    font-family: 'Walter Turncoat', Helvetica, sans-serif;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    background-color: var(--secondary-color); /* Light Purple background */
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* Header Styles */
+header {
+    background-color: var(--primary-color); /* Dark Gray */
+    width: 100%;
+    height: 80px; /* Smaller height for header */
+    display: flex;
+    justify-content: space-between; /* Space between logo and nav */
+    align-items: center;
+    padding: 0 20px;
+}
+
+header #logo {
+    width: 80px;
+    height: 60px;
+}
+
+header nav ul {
+    display: flex;
+    justify-content: space-between; /* Space out links */
+    align-items: center;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    width: 60%; /* Make sure the links take up enough space */
+}
+
+header nav ul li {
+    margin: 0 15px;
+}
+
+header nav ul li a {
+    text-decoration: none;
+    color: white;
+    font-family: 'Oswald', sans-serif;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+header nav ul li a:hover {
+    color: var(--accent2-color); /* Change link color on hover */
+}
+
+/* Main Content Styles */
+.content {
+    max-width: 600px;
+    padding: 20px;
+    margin: auto;
+}
+
+.card {
+    background-color: #f2e6ff; /* Light Purple background for card */
+    border-radius: 5px;
+    border-top: 5px solid #ee9be4; /* Soft Pink accent on top */
+    padding: 15px 30px;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.card h2 {
+    background-color: var(--secondary-color); /* Light Purple */
+    color: var(--accent1-color); /* Grayish Blue */
+    padding: 10px;
+    font-family: Lora, serif;
+    text-align: center;
+    border-radius: 5px;
+}
+
+.card .btn {
+    height: 50px;
+    width: 150px;
+    font-size: 18px;
+    background-color: var(--accent2-color); /* Orange Accent */
+    color: white;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.card .btn:hover {
+    background-color: #D84315; /* Darker orange on hover */
+    transform: scale(1.05);
+}
+
+/* Background Image Styles */
+#background {
+    width: 100%;
+    height: auto;
+    opacity: 0.7;
+}
+
+.container {
+    position: relative;
+    text-align: center;
+    color: white;
+}
+
+.centered h1 {
+    color: #333;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* Footer Styles */
+footer {
+    background-color: var(--primary-color); /* Dark Gray */
+    font-size: 18px;
+    text-align: center;
+    width: 100%;
+    height: 80px; /* Smaller footer */
+    display: flex;
+    justify-content: space-between; /* Space out logo and nav links */
+    align-items: center;
+    padding: 0 20px;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+}
+
+footer #logo {
+    width: 80px;
+    height: 60px;
+}
+
+footer nav ul {
+    display: flex;
+    justify-content: space-between; /* Space out footer links */
+    align-items: center;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    width: 60%; /* Make sure the links take up enough space */
+}
+
+footer nav ul li {
+    margin: 0 15px;
+}
+
+footer nav ul li a {
+    text-decoration: none;
+    color: white;
+}
+
+footer nav ul li a:hover {
+    color: var(--accent2-color); /* Change color of footer links on hover */
+}
+
+/* Responsive Styles */
+@media screen and (max-width: 768px) {
+    header, footer {
+        padding: 10px 10px;
+        height: 60px; /* Smaller header and footer on small screens */
+    }
+
+    header nav ul,
+    footer nav ul {
+        flex-direction: column; /* Stack nav links vertically */
+        text-align: center;
+    }
+
+    header nav ul li,
+    footer nav ul li {
+        margin: 5px 0;
+    }
+
+    .card {
+        padding: 15px;
+    }
+
+    .card h2 {
+        font-size: 1.5rem;
+    }
+}
